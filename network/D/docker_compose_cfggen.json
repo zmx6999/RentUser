@@ -1,0 +1,50 @@
+{
+  "domain": "house.com",
+  "kafkas": [
+    {
+      "host_name": "kafka3",
+      "broker_id": "3",
+      "zookeepers": [
+        "zookeeper0:2181",
+        "zookeeper1:2182",
+        "zookeeper2:2183"
+      ],
+      "ports": [
+        "9095"
+      ],
+      "backup_dir": "/backup/kafka3/logs"
+    }
+  ],
+  "peers": [
+    {
+      "peer_name": "peer1",
+      "org_name": "OrgUser",
+      "ports": [
+        "8051",
+        "8052",
+        "8053"
+      ],
+      "couchdb": {
+        "couchdb_name": "couchdb1",
+        "ports": [
+          "6984"
+        ],
+        "backup_dir": "/backup/OrgUser/couchdb1/data"
+      },
+      "backup_dir": "/backup/OrgUser/peer1/production"
+    }
+  ],
+  "hosts": [
+    "zookeeper0:104.156.230.68",
+    "kafka0:104.156.230.68",
+    "orderer0.house.com:104.156.230.68",
+    "zookeeper1:149.28.196.34",
+    "kafka1:149.28.196.34",
+    "orderer1.house.com:149.28.196.34",
+    "zookeeper2:45.63.94.102",
+    "kafka2:45.63.94.102",
+    "peer0.orguser.house.com:45.63.94.102",
+    "kafka3:149.28.212.97",
+    "peer1.orguser.house.com:149.28.212.97"
+  ]
+}

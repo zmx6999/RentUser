@@ -1,0 +1,34 @@
+{
+  "domain": "house.com",
+  "channels": [
+    {
+      "channel_name": "user",
+      "orgs": [
+        {
+          "org_name": "OrgUser",
+          "peers": [
+            {
+              "peer_name": "peer0",
+              "port": "7051"
+            },
+            {
+              "peer_name": "peer1",
+              "port": "8051"
+            }
+          ],
+          "anchor_peers": [
+            {
+              "peer_name": "peer0",
+              "port": "7051"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "orderer": {
+    "orderer_name": "orderer0",
+    "port": "7050"
+  },
+  "cli_name": "cli"
+}

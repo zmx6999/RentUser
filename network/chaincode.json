@@ -1,0 +1,31 @@
+{
+  "domain": "house.com",
+  "channels": [
+    {
+      "channel_name": "user",
+      "orgs": [
+        {
+          "org_name": "OrgUser",
+          "peers": [
+            {
+              "peer_name": "peer0",
+              "port": "7051"
+            },
+            {
+              "peer_name": "peer1",
+              "port": "8051"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "chaincode_name": "190326",
+  "chaincode_version": "1.1",
+  "orderer": {
+    "orderer_name": "orderer0",
+    "port": "7050"
+  },
+  "endorse": "AND ('OrgUserMSP.member')",
+  "cli_name": "cli"
+}

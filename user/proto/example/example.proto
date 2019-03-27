@@ -1,0 +1,151 @@
+syntax = "proto3";
+
+package go.micro.srv.user;
+
+service Example {
+	rpc GenerateId(GenerateIdRequest) returns (GenerateIdResponse) {}
+	rpc Captcha(CaptchaRequest) returns (CaptchaResponse) {}
+	rpc SmsCaptcha(SmsCaptchaRequest) returns (SmsCaptchaResponse) {}
+	rpc Register(RegisterRequest) returns (RegisterResponse) {}
+	rpc AddNewKey(AddNewKeyRequest) returns (AddNewKeyResponse) {}
+	rpc Login(LoginRequest) returns (LoginResponse) {}
+	rpc Logout(LogoutRequest) returns (LogoutResponse) {}
+	rpc GetInfo(GetInfoRequest) returns (GetInfoResponse) {}
+	rpc Avatar(AvatarRequest) returns (AvatarResponse) {}
+	rpc Rename(RenameRequest) returns (RenameResponse) {}
+	rpc Auth(AuthRequest) returns (AuthResponse) {}
+	rpc GetKeys(GetKeysRequest) returns (GetKeysResponse) {}
+	rpc DelKey(DelKeyRequest) returns (DelKeyResponse) {}
+}
+
+message Message {
+	string say = 1;
+}
+
+message GenerateIdRequest {
+
+}
+
+message GenerateIdResponse {
+	string UserId = 1;
+}
+
+message CaptchaRequest {
+	string UserId = 1;
+}
+
+message CaptchaResponse {
+	bytes Pix = 1;
+	int64 Stride = 2;
+	message Point {
+		int64 X = 1;
+		int64 Y = 2;
+	}
+	Point Min = 3;
+	Point Max = 4;
+}
+
+message SmsCaptchaRequest {
+	string UserId = 1;
+	string Mobile = 2;
+	string Captcha = 3;
+}
+
+message SmsCaptchaResponse {
+
+}
+
+message RegisterRequest {
+	string UserId = 1;
+	string Mobile = 2;
+	string SmsCaptcha = 3;
+}
+
+message RegisterResponse {
+	string UserId = 1;
+	string Mobile = 2;
+	string PublicKey = 3;
+	string PrivateKey = 4;
+}
+
+message AddNewKeyRequest {
+	string Mobile = 1;
+	string SmsCaptcha = 2;
+}
+
+message AddNewKeyResponse {
+	string Mobile = 1;
+	string PublicKey = 2;
+	string PrivateKey = 3;
+}
+
+message LoginRequest {
+	string Mobile = 1;
+}
+
+message LoginResponse {
+	string SessionId = 1;
+}
+
+message LogoutRequest {
+	string SessionId = 1;
+}
+
+message LogoutResponse {
+
+}
+
+message GetInfoRequest {
+	string SessionId = 1;
+}
+
+message GetInfoResponse {
+	bytes Data = 1;
+}
+
+message AvatarRequest {
+	string SessionId = 1;
+	bytes Data = 2;
+	string FileName = 3;
+	int64 FileSize = 4;
+}
+
+message AvatarResponse {
+
+}
+
+message RenameRequest {
+	string SessionId = 1;
+	string NewName = 2;
+}
+
+message RenameResponse {
+
+}
+
+message AuthRequest {
+	string SessionId = 1;
+	string RealName = 2;
+	string IdCard = 3;
+}
+
+message AuthResponse {
+
+}
+
+message GetKeysRequest {
+	string SessionId = 1;
+}
+
+message GetKeysResponse {
+	bytes Data = 1;
+}
+
+message DelKeyRequest {
+	string SessionId = 1;
+	string PublicKey = 2;
+}
+
+message DelKeyResponse {
+
+}
